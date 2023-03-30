@@ -1,0 +1,373 @@
+<div class="container mat-elevation-z8">      
+      <mat-stepper
+        class="stepper"
+        [orientation]="(stepperOrientation | async)!">
+        <mat-step [stepControl]="personFormGroup" label="Informações pessoais">
+          <form [formGroup]="personFormGroup">
+            <mat-form-field appearance="fill">
+              <mat-label>Nome</mat-label>
+              <input value="person.firstname" [(ngModel)]="person.firstname" matInput placeholder="Nome" formControlName="firstname" required>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Sobrenome</mat-label>
+                <input [(ngModel)]="person.lastname" matInput placeholder="Sobrenome" formControlName="lastname" required>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Apelido</mat-label>
+                <input [(ngModel)]="person.surname" matInput placeholder="Apelido" formControlName="surname" required>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Data de Nascimento</mat-label>
+                <input [(ngModel)]="person.birthDate" datetime="dd-MM-yyyy" type="date" matInput formControlName="birthDate" required>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Idade</mat-label>
+                <input [(ngModel)]="person.age" type="number" matInput formControlName="age" required>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+              <mat-label>Nacionalidade</mat-label>
+              <input [(ngModel)]="person.nationality" matInput formControlName="nationality" required>
+          </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>CPF</mat-label>
+                <input [(ngModel)]="person.cpf" matInput placeholder="CPF" formControlName="cpf" required>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>RG</mat-label>
+                <input [(ngModel)]="person.rg" matInput placeholder="RG" formControlName="rg" required>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Nome do pai</mat-label>
+                <input [(ngModel)]="person.fatherName" matInput placeholder="Nome do pai" formControlName="fatherName" required>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Nome da mãe</mat-label>
+                <input [(ngModel)]="person.motherName" matInput placeholder="Nome da mãe" formControlName="motherName" required>
+            </mat-form-field>
+
+            <button (click)=getData()>get Data</button>
+
+            <div>
+              <button mat-button matStepperNext>Próximo</button>
+            </div>
+          </form>
+        </mat-step>
+        <mat-step [stepControl]="personFormGroup" label="Características">
+          <form [formGroup]="personFormGroup">
+
+            <mat-form-field appearance="fill">
+              <mat-label>Estado Cívil</mat-label>
+              <mat-select [(ngModel)]="person.particulars.maritalStatus" name="maritalStatus" formControlName="maritalStatus">
+                <mat-option ngDefaultControl *ngFor="let status of maritalStatus" [value]="status.value">
+                  {{status.viewValue}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Cor da pele</mat-label>
+                <mat-select [(ngModel)]="person.particulars.skinColor" name="skinColor" formControlName="skinColor">
+                  <mat-option ngDefaultControl *ngFor="let color of skinColor" [value]="color.value">
+                    {{color.viewValue}}
+                  </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Cor dos olhos</mat-label>
+                <mat-select [(ngModel)]="person.particulars.skinEyes" name="skinEyes" formControlName="skinEyes">
+                  <mat-option ngDefaultControl *ngFor="let color of eyeColor" [value]="color.value">
+                    {{color.viewValue}}
+                  </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Tipo do cabelo</mat-label>
+                <mat-select [(ngModel)]="person.particulars.hairType" name="hairType" formControlName="hairType">
+                  <mat-option ngDefaultControl *ngFor="let type of hairType" [value]="type.value">
+                    {{type.viewValue}}
+                  </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+              <mat-label>Cor do cabelo</mat-label>
+              <mat-select [(ngModel)]="person.particulars.hairColor" name="hairColor" formControlName="hairColor">
+                <mat-option ngDefaultControl *ngFor="let color of hairColor" [value]="color.value">
+                  {{color.viewValue}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Peso</mat-label>
+            <input [(ngModel)]="person.particulars.weight" matInput formControlName="weight" placeholder=""
+                   required>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Altura</mat-label>
+            <input [(ngModel)]="person.particulars.height" matInput formControlName="height" placeholder=""
+                   required>
+        </mat-form-field>
+
+            <div>
+              <button mat-button matStepperPrevious>Anterior</button>
+              <button mat-button matStepperNext>Próximo</button>
+            </div>
+          </form>
+        </mat-step>
+        <mat-step [stepControl]="personFormGroup" label="Endereço">
+          <form [formGroup]="personFormGroup">
+
+            <mat-form-field appearance="fill">
+                <mat-label>Rua</mat-label>
+                <input [(ngModel)]="person.address.street" matInput formControlName="street" placeholder="Rua"
+                       required>
+              </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Cidade</mat-label>
+                <input [(ngModel)]="person.address.city" matInput formControlName="city" placeholder="Cidade"
+                       required>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Estado</mat-label>
+                <input [(ngModel)]="person.address.state" matInput formControlName="state" placeholder="Estado"
+                       required>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Número</mat-label>
+                <input [(ngModel)]="person.address.number" matInput formControlName="number" placeholder="Número"
+                       required>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>CEP</mat-label>
+                <input [(ngModel)]="person.address.zipCode" matInput formControlName="zipCode" placeholder="CEP"
+                       required>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Complemento</mat-label>
+                <input [(ngModel)]="person.address.complement" matInput formControlName="complement" placeholder="Complemento"
+                       required>
+            </mat-form-field>
+
+            <div>
+              <button mat-button matStepperPrevious>Anterior</button>
+              <button mat-button matStepperNext>Próximo</button>
+            </div>
+          </form>
+        </mat-step>
+
+        <mat-step [stepControl]="personFormGroup" label="Ocorrências">
+            <form [formGroup]="personFormGroup">
+
+              <div [formGroup]="personFormGroup">
+                <ng-container formArrayName="occurrences">
+                  <ng-container *ngFor="let occurrencesForm of occurrences.controls; let i = index">
+                        <div [formGroupName]="i">
+
+                          <mat-form-field>
+                            <input matInput formControlName="date" type="date">
+                          </mat-form-field>
+                          
+                          <mat-form-field appearance="fill">
+                            <mat-label>Procedimento</mat-label>
+                            <input matInput formControlName="procedure" placeholder="Procedimento">
+                          </mat-form-field>
+
+                          <mat-form-field appearance="fill">
+                            <mat-label>Artigo</mat-label>
+                            <input matInput formControlName="article" placeholder="Artigo">
+                          </mat-form-field>
+
+                          <mat-form-field appearance="fill">
+                            <mat-label>Lei</mat-label>
+                            <input matInput formControlName="law" placeholder="Lei">
+                          </mat-form-field>
+
+                          <mat-form-field appearance="fill">
+                            <mat-label>Histórico</mat-label>
+                            <textarea type="textarea" matInput formControlName="historic" placeholder="Histórico"></textarea>
+                          </mat-form-field>
+
+                            <mat-icon (click)="deleteOccurrence(i)">delete_forever</mat-icon>
+
+
+                            <button (click)=getOccurrences()>get occurrences</button>
+                        
+
+                        </div>
+                  </ng-container>
+                </ng-container>
+
+                
+                <button mat-mini-fab (click)="addOccurrences()">
+                  <mat-icon>add</mat-icon>
+                </button>
+                
+
+              </div>
+
+              <div>
+                <button mat-button matStepperPrevious>Anterior</button>
+                <button mat-button matStepperNext>Próximo</button>
+              </div>
+            </form>
+          </mat-step>
+
+
+          <mat-step [stepControl]="personFormGroup" label="Tatuagens/Cicatrizes">
+            <form [formGroup]="personFormGroup">
+  
+              <mat-form-field>
+                <mat-label>Face</mat-label>
+                <input [(ngModel)]="person.tattoos.face" matInput formControlName="face">
+              </mat-form-field>
+
+              <mat-form-field>
+                <mat-label>Costas Esquerda</mat-label>
+                <input [(ngModel)]="person.tattoos.leftBack" matInput formControlName="leftBack">
+              </mat-form-field> 
+
+              <mat-form-field>
+                <mat-label>Costas Direita</mat-label>
+                <input [(ngModel)]="person.tattoos.rightBack" matInput formControlName="rightBack">
+              </mat-form-field>
+
+              <mat-form-field>
+                <mat-label>Peito Esquerda</mat-label>
+                <input [(ngModel)]="person.tattoos.leftChest" matInput formControlName="leftChest">
+              </mat-form-field>
+
+              <mat-form-field>
+                <mat-label>Peito Direita</mat-label>
+                <input [(ngModel)]="person.tattoos.rightChest" matInput formControlName="rightChest">
+              </mat-form-field>
+
+              <mat-form-field>
+                <mat-label>Barriga Esquerda</mat-label>
+                <input [(ngModel)]="person.tattoos.leftBelly" matInput formControlName="leftBelly">
+              </mat-form-field>
+
+              <mat-form-field>
+                <mat-label>Barriga Direita</mat-label>
+                <input [(ngModel)]="person.tattoos.rightBelly" matInput formControlName="rightBelly">
+              </mat-form-field>
+              
+              <mat-form-field>
+                <mat-label>Perna Esquerda</mat-label>
+                <input [(ngModel)]="person.tattoos.leftLeg" matInput formControlName="leftLeg">
+              </mat-form-field>
+
+              <mat-form-field>
+                <mat-label>Perna Direita</mat-label>
+                <input [(ngModel)]="person.tattoos.rightLeg" matInput formControlName="rightLeg">
+              </mat-form-field>
+
+              <mat-form-field>
+                <mat-label>Pé Esquerdo</mat-label>
+                <input [(ngModel)]="person.tattoos.leftFeet" matInput formControlName="leftFeet">
+              </mat-form-field>
+
+              <mat-form-field>
+                <mat-label>Pé Direito</mat-label>
+                <input [(ngModel)]="person.tattoos.rightFeet" matInput formControlName="rightFeet">
+              </mat-form-field>
+
+              <mat-form-field>
+                <mat-label>Braço Direito</mat-label>
+                <input [(ngModel)]="person.tattoos.leftArm" matInput formControlName="leftArm">
+              </mat-form-field>
+
+              <mat-form-field>
+                <mat-label>Braço Esquerdo</mat-label>
+                <input [(ngModel)]="person.tattoos.rightArm" matInput formControlName="rightArm">
+              </mat-form-field>
+
+              <mat-form-field>
+                <mat-label>Antebraço Esquerdo</mat-label>
+                <input [(ngModel)]="person.tattoos.leftForearm" matInput formControlName="leftForearm">
+              </mat-form-field>
+
+              <mat-form-field>
+                <mat-label>Antebraço Direito</mat-label>
+                <input [(ngModel)]="person.tattoos.rightForearm" matInput formControlName="rightForearm">
+              </mat-form-field>
+
+              <mat-form-field>
+                <mat-label>Mão Direita</mat-label>
+                <input [(ngModel)]="person.tattoos.leftHand" matInput formControlName="leftHand">
+              </mat-form-field>
+
+              <mat-form-field>
+                <mat-label>Mão Esquerda</mat-label>
+                <input [(ngModel)]="person.tattoos.rightHand" matInput formControlName="rightHand">
+              </mat-form-field>
+
+              <mat-form-field>
+                <mat-label>Pescoço Esquerda</mat-label>
+                <input [(ngModel)]="person.tattoos.leftNeck" matInput formControlName="leftNeck">
+              </mat-form-field>
+
+              <mat-form-field>
+                <mat-label>Pescoço Dirieta</mat-label>
+                <input [(ngModel)]="person.tattoos.rightNeck" matInput formControlName="rightNeck">
+              </mat-form-field>
+
+              <mat-form-field>
+                <mat-label>Cicatriz</mat-label>
+                <input [(ngModel)]="person.tattoos.scar" matInput formControlName="scar">
+              </mat-form-field>
+
+              <mat-form-field>
+                <mat-label>Deformidade</mat-label>
+                <input [(ngModel)]="person.tattoos.deformity" matInput formControlName="deformity">
+              </mat-form-field>
+              
+              <div>
+                <button mat-button matStepperPrevious>Anterior</button>
+                <button mat-button matStepperNext>Próximo</button>
+              </div>
+            </form>
+          </mat-step>
+
+        <mat-step>
+          <ng-template matStepLabel>Done</ng-template>
+          
+          <input
+          style="display: none"
+          type="file" accept="image/*" (change)="onFileChange($event)"
+          #fileInput>
+        <button (click)="fileInput.click()">Selecione uma imagem</button>
+
+        <img [src]="imgURL" *ngIf="imgURL" class="preview">
+
+        <div>
+          <button (click)=create()>Cadastrar Suspeito</button>
+        </div>
+
+        <div>
+          <button (click)=uploadImage()>Upload Image</button>
+        </div>
+          
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+          </div>
+        </mat-step>
+      </mat-stepper>
+</div>

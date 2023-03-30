@@ -1,0 +1,47 @@
+.container {
+    width: 90%;
+    margin: auto;
+}
+
+table {
+    width: 100%;
+}
+
+mat-form-field {
+    width: 100%;
+}
+
+.firstname {
+    padding-left: 1rem;
+}
+
+button {
+    width: 100%;
+    background-color: #f2ba6c;
+    color: white;
+}
+
+h1 {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.edit {
+    color: black;
+    padding: 0.5rem;
+}
+
+.delete {
+    color: red;
+    padding: 0.5rem;
+}
+
+.eye {
+    padding: 0.5rem;
+}
+
+img {
+    clip-path: circle();  
+    width: 5rem; 
+}

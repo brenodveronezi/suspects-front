@@ -1,0 +1,31 @@
+.container{
+    height: 100%;
+    margin-left: 0;
+    padding-left: 0;
+    display: inline;
+}
+
+.sidenav {
+    width: 13rem;
+    color: black;
+    background-color: rgb(243, 240, 240);
+}
+
+img {
+    width:  100%;
+    width: 6rem;
+    margin: 1rem auto 1rem .5rem;
+    align-items: center;
+}
+
+.sidenav a {
+    color: black;
+}
+
+.sidenav i {
+    margin-right: .6rem;
+}
+
+.menu {
+    margin: 1rem 0 0 1rem;
+}

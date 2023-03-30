@@ -1,0 +1,20 @@
+.container {
+  width: 90%;
+  margin: auto;
+}
+
+mat-form-field {
+  margin: 1rem;
+}
+
+.occurrences {
+  width: 100%;
+}
+
+.preview {
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  width: 300px;
+}

@@ -1,0 +1,24 @@
+<mat-drawer-container class="container" autosize>
+    <mat-drawer #drawer class="sidenav" mode="side" opened>
+        <img src="assets/img/pf.png">
+        <mat-nav-list class="nav-list">
+            <a mat-list-item routerLink="listar-suspeitos">
+                <i class="material-icons">contacts</i>
+                Suspeitos
+            </a>
+            <a  mat-list-item routerLink="cadastrar-suspeito">
+                <i class="material-icons">people</i>
+                Cadastrar Suspeito
+            </a>
+        </mat-nav-list>
+    </mat-drawer>
+  
+    <div class="sidenav-content">
+        
+      <button class="menu" mat-button (click)="!drawer.toggle()" mat-icon-button>
+          <mat-icon>menu</mat-icon>
+      </button>
+      <router-outlet></router-outlet>
+    </div>
+  
+</mat-drawer-container>
