@@ -1,10 +1,60 @@
+.container {
+    width: 100%;
+    padding: 1rem 1rem 1rem 2rem;
+}
 
+h1 {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.padding-1rem {
+    padding: 0rem 0rem 0rem 1rem;
+    font-weight: 600;
+    font-size: 17px;
+}
+
+.padding-1rem-div {
+    padding: 0rem 0rem 0rem 1rem;
+}
+
+.div-form {
+    padding-bottom: 2rem;
+}
+
+.historic {
+    width: 91% !important;
+    margin: 0;
+}
+
+.title {
+    font-weight: 400;
+    font-size: 25px;
+}
+
+.icon-occurrences {
+    padding-bottom: 1rem;
+    padding-left: 80%;
+}
+
+.occurrences-div {
+    padding-top: 2rem;
+}
+
+.add-button {
+    padding-left: 1rem;
+    padding-bottom: 3rem;
+}
+
+.mat-form-field {
+    width: 45%;
+}
 
 mat-form-field + mat-form-field {
     margin: 0rem 0rem 0rem 1rem;
 }
   
-
 .checkbox-tattoos {
     display: flex;
     width: 30%;
@@ -15,6 +65,25 @@ mat-checkbox {
     column-count: 2;
 }
 
-.tattoos {
 
+mat-form-field.mat-form-field {
+    font-size: 16px;
+    color: black;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline {
+    color: black;
+  }
+
+::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+    color: black;
+}
+
+
+.mat-form-field-appearance .mat-form-field-outline {
+    color: black;
+  }
+
+::ng-deep .mat-form-field-appearance.fill.mat-focused .mat-form-field-fill-thick {
+    color: black;
 }
