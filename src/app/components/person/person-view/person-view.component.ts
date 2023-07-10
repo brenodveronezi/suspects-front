@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { API_CONFIG } from 'src/app/config/api.config';
 import { Person } from 'src/app/models/person';
 import { PersonService } from 'src/app/services/person.service';
+import { UploadService } from 'src/app/services/upload.service';
 
 @Component({
   selector: 'app-person-view',
@@ -25,8 +27,8 @@ export class PersonViewComponent implements OnInit {
     nationality: '',
     cpf: '',
     rg: '',
-    fathername: '',
-    mothername: '',
+    fatherName: '',
+    motherName: '',
     address: {
       street: '',
       city: '',
@@ -46,27 +48,27 @@ export class PersonViewComponent implements OnInit {
       height: ''
     },
     tattoos:  {   
-    face: false,
-    leftBack: false,
-    rightBack: false,
-    leftChest: false,
-    rightChest: false,
-    leftBelly: false,
-    rightBelly: false,
-    leftLeg: false,
-    rightLeg: false,
-    leftFeet: false,
-    rightFeet: false,
-    leftArm: false,
-    rightArm: false,
-    leftForearm: false,
-    rightForearm: false,
-    leftHand: false,
-    rightHand: false,
-    leftNeck: false,
-    rightNeck: false,
-    scar: false,
-    deformity: false
+    face: '',
+    leftBack: '',
+    rightBack: '',
+    leftChest: '',
+    rightChest: '',
+    leftBelly: '',
+    rightBelly: '',
+    leftLeg: '',
+    rightLeg: '',
+    leftFeet: '',
+    rightFeet: '',
+    leftArm: '',
+    rightArm: '',
+    leftForearm: '',
+    rightForearm: '',
+    leftHand: '',
+    rightHand: '',
+    leftNeck: '',
+    rightNeck: '',
+    scar: '',
+    deformity: ''
     },
     image: {
       id: '',
@@ -78,11 +80,36 @@ export class PersonViewComponent implements OnInit {
 
   constructor(
     private personService: PersonService,
+    private uploadService: UploadService
   ) { }
 
   ngOnInit(): void {
+    this.listAllImages();
   }
 
+  firstName = new FormControl('');
+  lastName = new FormControl('');
+  alturaDe = new FormControl('');
+  alturaAte = new FormControl('');
+
+  testSearch(): void {
+    console.log(this.firstName, this.lastName);
+  }
+
+  searchPerson(): void {
+    this.personService.findByFilter(this.firstName, this.lastName).subscribe(
+      (response) => {console.log(response), console.log(this.firstName, this.lastName)}
+    )
+  }
+
+
+  images:any = []
+
+  listAllImages(): void {
+    this.uploadService.findAllUploadImages().subscribe(
+    (response) => {this.images = response, console.log(this.images)}
+    )
+  }
 
   personFindById(): void {
     this.personService.findById(this.person.id).subscribe(
@@ -91,4 +118,6 @@ export class PersonViewComponent implements OnInit {
     )
   }
 
+ 
+  
 }

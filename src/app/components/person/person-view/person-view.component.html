@@ -1,1 +1,17 @@
-<p>person-view works!</p>
+<!--
+<ngb-carousel>
+	<ng-template ngbSlide *ngFor="let image of images">
+	  <div class="wrapper">
+		<img [src]="image.url">
+	  </div>
+	</ng-template>
+</ngb-carousel>
+
+-->
+
+<input [(ngModel)]="firstName" placeholder="nome">
+<input [(ngModel)]="lastName" id="lastName" placeholder="sobrenome">
+<input type=text> Altura:
+<input [(ngModel)]="alturaDe" >De
+<input [(ngModel)]="alturaAte" >Até
+<button (click)="searchPerson()">buscar</button>

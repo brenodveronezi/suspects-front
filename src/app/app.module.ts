@@ -7,16 +7,18 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { PersonCreateComponent } from './components/person/person-create/person-create.component';
 import { PersonUpdateComponent } from './components/person/person-update/person-update.component';
+import { PersonListComponent } from './components/person/person-list/person-list.component';
+import { PersonViewComponent } from './components/person/person-view/person-view.component';
 import { NavComponent } from './components/nav/nav.component';
+
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatIconModule } from '@angular/material/icon';
-import { PersonListComponent } from './components/person/person-list/person-list.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatCheckboxModule } from '@angular/material/checkbox';
@@ -27,8 +29,8 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatListModule } from '@angular/material/list';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
-
-
+import {MatCardModule} from '@angular/material/card';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,8 @@ import { MatTableModule } from '@angular/material/table';
     PersonCreateComponent,
     PersonListComponent,
     NavComponent,
-    PersonUpdateComponent
+    PersonUpdateComponent,
+    PersonViewComponent
   ],
   imports: [
     HttpClientModule,
@@ -59,7 +62,10 @@ import { MatTableModule } from '@angular/material/table';
     MatRadioModule,
     MatListModule,
     MatPaginatorModule,
-    MatTableModule
+    MatTableModule,
+    MatCardModule,
+    NgbModule
+
   ],
   providers: [{provide: MAT_DATE_LOCALE, useValue: 'pt-BR',},],
   bootstrap: [AppComponent]

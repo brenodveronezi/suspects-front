@@ -2,7 +2,7 @@
     
     <h1 class="title">EDITAR CADASTRO</h1>
 
-    <div class="div-form">
+    <div class="div-form mat-elevation-z8">
         <h2 class="padding-1rem">INFORMAÇÕES PESSOAIS</h2>
 
         <mat-form-field appearance="outline" class="padding-1rem-div">
@@ -114,9 +114,10 @@
     </div>
 
 
-<h2 class="padding-1rem">ENDEREÇO</h2>
+<div class="div-form mat-elevation-z8">
 
-<div class="div-form">
+    <h2 class="padding-1rem">ENDEREÇO</h2>
+
     <mat-form-field appearance="outline" class="padding-1rem-div">
         <mat-label>Rua</mat-label>
         <input [(ngModel)]="person.address.street" matInput placeholder="Rua"
@@ -154,11 +155,11 @@
     </mat-form-field>
 </div>
 
-<h2 class="padding-1rem">PASSAGENS</h2>
-
-
     <ng-container *ngFor="let occurrences of ocurrencesValue; let i = index"> 
-        <div>  
+        <div class="div-form mat-elevation-z8">  
+
+            <h2 class="padding-1rem">PASSAGENS</h2>
+
             <mat-form-field appearance="outline"  class="padding-1rem-div">
                 <mat-label>Data</mat-label>
                 <input [(ngModel)]="occurrences.date" matInput  type="date">
@@ -191,10 +192,10 @@
     </ng-container>
 
 
-    <div class="occurrences-div" [formGroup]="personFormGroup">
+    <div [formGroup]="personFormGroup">
         <ng-container *ngFor="let occurrencesForm of occurrences.controls; let i = index">
             <ng-container formArrayName="occurrences">
-                <div [formGroupName]="i">
+                <div class="div-form mat-elevation-z8" [formGroupName]="i">
 
                         <mat-form-field appearance="outline" class="padding-1rem">
                             <input matInput formControlName="date" type="date">
@@ -236,12 +237,10 @@
             <mat-icon>add_circle_outline</mat-icon> Adicionar Passagem
         </button>
     </div>
-
-
-
-    <h2 class="padding-1rem">TATUAGENS</h2>
     
-    <div class="div-form">
+    <div class="div-tatuagens mat-elevation-z8">
+
+        <h2 class="padding-1rem">TATUAGENS</h2>
 
         <mat-form-field appearance="outline" class="padding-1rem-div">
             <mat-label>Face</mat-label>
@@ -355,21 +354,23 @@
 
       </div>
 
-      <h2 class="padding-1rem">FOTO</h2>
+      <div class="div-form">
+        <h2 class="padding-1rem">FOTO</h2>
 
-  <input
-  style="display: none"
-  type="file" accept="image/*" (change)="onFileChange($event)"
-  #fileInput>
-<button (click)="fileInput.click()">Selecione uma imagem</button>
+        <input
+        style="display: none"
+        type="file" accept="image/*" (change)="onFileChange($event)"
+        #fileInput>
+        <button (click)="fileInput.click()">Selecione uma imagem</button>
 
-<div>
-    <img [src]="imgURL" class="preview">
-</div>
+        <div>
+            <img [src]="imgURL" class="preview">
+        </div>
 
 
-<button (click)="updatePerson()">Salvar</button>
+        <button (click)="updatePerson()">Salvar</button>
 
-<button (click)="updateImage()">Update Image</button>
-
+        <button (click)="updateImage()">Update Image</button>
+      </div>
+      
 </div>

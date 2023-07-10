@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { API_CONFIG } from '../config/api.config';
 import { Upload } from '../models/upload';
 import { Observable } from 'rxjs';
+import { imageUrl } from '../models/imageUrl';
 
 
 @Injectable({
@@ -23,4 +24,8 @@ export class UploadService {
   findById(id: any): Observable<Upload> {
     return this.http.get<Upload>(`${API_CONFIG.baseUrl}/upload/${id}`);
   } 
+
+  findAllUploadImages(): Observable<imageUrl[]> {
+    return this.http.get<imageUrl[]>(`${API_CONFIG.baseUrl}/upload`);
+  }
 }

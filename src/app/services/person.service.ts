@@ -3,6 +3,9 @@ import { Injectable } from '@angular/core';
 import { Person } from '../models/person';
 import { Observable } from 'rxjs';
 import { API_CONFIG } from '../config/api.config';
+import { Upload } from '../models/upload';
+import { imageUrl } from '../models/imageUrl';
+import { Filter } from '../models/filter';
 
 const uploadHeaders = { "Content-Type": "multipart/form-data"};
 
@@ -26,6 +29,10 @@ export class PersonService {
   }
 
   findById(id: any): Observable<Person> {
-    return this.http.get<Person>(`${API_CONFIG.baseUrl}/person/${id}`)
+    return this.http.get<Person>(`${API_CONFIG.baseUrl}/person/${id}`);
+  }
+
+  findByFilter(firstName: any, lastName: any): Observable<Person> {
+    return this.http.get<Person>(`${API_CONFIG.baseUrl}/person/search?firstName=${firstName}&lastName=${lastName}`);
   }
 }

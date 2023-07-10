@@ -21,6 +21,12 @@ h1 {
 
 .div-form {
     padding-bottom: 2rem;
+    padding-top: 2rem;
+    margin-top: 1rem;
+}
+
+.div-tatuagens {
+    padding-top: 2rem;
 }
 
 .historic {
@@ -43,8 +49,7 @@ h1 {
 }
 
 .add-button {
-    padding-left: 1rem;
-    padding-bottom: 3rem;
+    margin-bottom: 1rem;
 }
 
 .mat-form-field {
