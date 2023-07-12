@@ -9,9 +9,11 @@
 
 -->
 
-<input [(ngModel)]="firstName" placeholder="nome">
-<input [(ngModel)]="lastName" id="lastName" placeholder="sobrenome">
-<input type=text> Altura:
-<input [(ngModel)]="alturaDe" >De
-<input [(ngModel)]="alturaAte" >Até
+
+<input type="text" [formControl]="firstName" placeholder="nome">
+<input type="text" [formControl]="lastName" id="lastName" placeholder="sobrenome">
+<label> Idade: De
+<input type="number" [formControl]="startAge" >Até
+<input type="number" [formControl]="endAge" >
+
 <button (click)="searchPerson()">buscar</button>

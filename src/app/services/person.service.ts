@@ -32,7 +32,7 @@ export class PersonService {
     return this.http.get<Person>(`${API_CONFIG.baseUrl}/person/${id}`);
   }
 
-  findByFilter(firstName: any, lastName: any): Observable<Person> {
-    return this.http.get<Person>(`${API_CONFIG.baseUrl}/person/search?firstName=${firstName}&lastName=${lastName}`);
+  findByFilter(firstName: any, lastName: any, startAge: any, endAge: any): Observable<Person> {
+    return this.http.get<Person>(`${API_CONFIG.baseUrl}/person/search?firstName=${firstName}&lastName=${lastName}&startAge=${startAge}&endAge=${endAge}`);
   }
 }

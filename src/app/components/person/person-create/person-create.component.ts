@@ -107,7 +107,7 @@ export class PersonCreateComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.addOccurrences();
+    //this.addOccurrences();
   }
 
   private initForm(){
@@ -145,27 +145,27 @@ export class PersonCreateComponent implements OnInit {
 
     occurrences: this._formBuilder.array([]),
 
-    face: ['', Validators.required],
-    leftBack: ['', Validators.required],
-    rightBack: ['', Validators.required],
-    leftChest: ['', Validators.required],
-    rightChest: ['', Validators.required],
-    leftBelly: ['', Validators.required],
-    rightBelly: ['', Validators.required],
-    leftLeg: ['', Validators.required],
-    rightLeg: ['', Validators.required],
-    leftFeet: ['', Validators.required],
-    rightFeet: ['', Validators.required],
-    leftArm: ['', Validators.required],
-    rightArm: ['', Validators.required],
-    leftForearm: ['', Validators.required],
-    rightForearm: ['', Validators.required],
-    leftHand: ['', Validators.required],
-    rightHand: ['', Validators.required],
-    leftNeck: ['', Validators.required],
-    rightNeck: ['', Validators.required],
-    scar: ['', Validators.required],
-    deformity: ['', Validators.required]
+    face: [''],
+    leftBack: [''],
+    rightBack: [''],
+    leftChest: [''],
+    rightChest: [''],
+    leftBelly: [''],
+    rightBelly: [''],
+    leftLeg: [''],
+    rightLeg: [''],
+    leftFeet: [''],
+    rightFeet: [''],
+    leftArm: [''],
+    rightArm: [''],
+    leftForearm: [''],
+    rightForearm: [''],
+    leftHand: [''],
+    rightHand: [''],
+    leftNeck: [''],
+    rightNeck: [''],
+    scar: [''],
+    deformity: ['']
   });
   stepperOrientation: Observable<StepperOrientation>;
 

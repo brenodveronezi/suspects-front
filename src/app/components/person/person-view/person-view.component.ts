@@ -78,6 +78,8 @@ export class PersonViewComponent implements OnInit {
     }
   }
 
+
+
   constructor(
     private personService: PersonService,
     private uploadService: UploadService
@@ -87,18 +89,19 @@ export class PersonViewComponent implements OnInit {
     this.listAllImages();
   }
 
+  
   firstName = new FormControl('');
   lastName = new FormControl('');
-  alturaDe = new FormControl('');
-  alturaAte = new FormControl('');
+  startAge = new FormControl('');
+  endAge = new FormControl('');
 
   testSearch(): void {
     console.log(this.firstName, this.lastName);
   }
 
   searchPerson(): void {
-    this.personService.findByFilter(this.firstName, this.lastName).subscribe(
-      (response) => {console.log(response), console.log(this.firstName, this.lastName)}
+    this.personService.findByFilter(this.firstName.value, this.lastName.value, this.startAge.value, this.endAge.value).subscribe(
+      (response) => {console.log(response), console.log(this.person.firstname, this.person.lastname)}
     )
   }
 
